@@ -96,7 +96,7 @@ class _UcellScreenState extends State<UcellScreen> {
                     height: 200,
                     width: double.infinity,
                     child: Image.asset(
-                      'assets/images/uzmob/uzmob.png',
+                      'assets/images/ucell/ucell.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),

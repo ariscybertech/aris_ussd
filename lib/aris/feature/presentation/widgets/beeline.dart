@@ -94,7 +94,7 @@ class _SingleBlockState extends State<SingleBlock> {
                     height: 200,
                     width: double.infinity,
                     child: Image.asset(
-                      'assets/images/uzmob/uzmob.png',
+                      'assets/images/beeline/beelogo.png',
                       fit: BoxFit.cover,
                     ),
                   ),

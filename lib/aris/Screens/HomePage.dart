@@ -165,6 +165,14 @@ class _HomePageState extends State<HomePage> {
     'mobiuz',
     'Operator',
   ];
+
+  List<Color> colors = [
+    Colors.blue,
+    Colors.deepPurple,
+    Colors.yellow[900],
+    Colors.red,
+  ];
+
   List<Widget> screens = [
     UzmobScreen(),
     UcellScreen(),
@@ -198,21 +206,50 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-        body: SizedBox.expand(
-          child: PageView(
-            controller: _pageController,
-            onPageChanged: (index) {
-              setState(() => _currentIndex = index);
-            },
-            children: <Widget>[
-              UzmobScreen(),
-              UcellScreen(),
-              SingleBlock(),
-              MobiUzScreen(),
-            ],
+        appBar: AppBar(
+          leading: Icon(
+            Icons.settings,
+            color: colors[_currentIndex],
           ),
+          title: Center(
+            child: Text(
+              titles[_currentIndex],
+              style: TextStyle(
+                color: colors[_currentIndex],
+              ),
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: Icon(
+                Icons.notification_add,
+                color: colors[_currentIndex],
+              ),
+            ),
+          ],
+          backgroundColor: Colors.transparent,
+          elevation: 0,
         ),
+        backgroundColor: Colors.grey[200],
+        body: (downloading)
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : SizedBox.expand(
+                child: PageView(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() => _currentIndex = index);
+                  },
+                  children: <Widget>[
+                    UzmobScreen(),
+                    UcellScreen(),
+                    SingleBlock(),
+                    MobiUzScreen(),
+                  ],
+                ),
+              ),
         bottomNavigationBar: BottomNavyBar(
           selectedIndex: _currentIndex,
           showElevation: true,
@@ -251,201 +288,5 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ));
-
-    // return Scaffold(
-    //   body: (downloading)
-    //       ? Center(
-    //           child: CircularProgressIndicator(),
-    //         )
-    //       : Stack(
-    //           children: [
-    //             DefaultTabController(
-    //                 length: 4,
-    //                 child: NestedScrollView(
-    //                     headerSliverBuilder:
-    //                         (BuildContext context, bool innerBoxIsScrolled) {
-    //                       return <Widget>[
-    //                         SliverAppBar(
-    //                           actions: [
-    //                             IconButton(
-    //                               icon: Icon(
-    //                                 Icons.share,
-    //                                 color: Colors.black,
-    //                                 size: 30,
-    //                               ),
-    //                               onPressed: () {
-    //                                 if (Platform.isAndroid) {
-    //                                   Share.share(
-    //                                       'https://play.google.com/store/apps/details?id=com.mirkhujaev.usd_app');
-    //                                 } else {
-    //                                   Share.share(
-    //                                       'https://apps.apple.com/uz/app/ussd-mobile-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD/id1563621143');
-    //                                 }
-    //                               },
-    //                             ),
-    //                           ],
-    //                           backgroundColor: Colors.white,
-    //                           expandedHeight: 200.0,
-    //                           floating: false,
-    //                           pinned: true,
-    //                           flexibleSpace: FlexibleSpaceBar(
-    //                             titlePadding: EdgeInsets.only(top: 20),
-    //                             centerTitle: true,
-    //                             title: Container(
-    //                               width: MediaQuery.of(context).size.width,
-    //                               height: 30,
-    //                               color: Colors.white54,
-    //                               child: Center(
-    //                                 child: Text('${titles[currentIndex]}',
-    //                                     style: TextStyle(
-    //                                       color: Colors.black,
-    //                                       fontSize: 20.0,
-    //                                       fontWeight: FontWeight.bold,
-    //                                     )),
-    //                               ),
-    //                             ),
-    //                             background: Container(
-    //                                 height: 100,
-    //                                 child: Image(
-    //                                   colorBlendMode: BlendMode.color,
-    //                                   image: AssetImage(
-    //                                       '${imageRoutes[currentIndex]}'),
-    //                                   fit: BoxFit.cover,
-    //                                 )),
-    //                           ),
-    //                         ),
-    //                         new SliverPadding(
-    //                           padding: new EdgeInsets.all(16.0),
-    //                           sliver: new SliverList(
-    //                             delegate: new SliverChildListDelegate([
-    //                               Container(),
-    //                             ]),
-    //                           ),
-    //                         ),
-    //                       ];
-    //                     },
-    //                     body: screens[currentIndex])),
-    //             DraggableFloatingActionButton(
-    //               isExtended: true,
-    //               offset: new Offset(0, 200),
-    //               backgroundColor: Colors.green,
-    //               child: new Icon(
-    //                 Icons.speed_rounded,
-    //                 color: Colors.white,
-    //               ),
-    //               onPressed: () {
-    //                 Navigator.push(
-    //                   context,
-    //                   MaterialPageRoute(
-    //                     builder: (context) => SettingsScreen(),
-    //                   ),
-    //                 );
-    //               },
-    //               appContext: context,
-    //               data: 'your_data',
-    //             ),
-    //           ],
-    //         ),
-
-    //   bottomNavigationBar: CustomNavigationBar(
-    //   key: _bottomNavigationKey,
-    //   iconSize: 30.0,
-    //   selectedColor: Colors.white,
-    //   strokeColor: Colors.white,
-    //   unSelectedColor: Colors.grey[600],
-    //   backgroundColor: Colors.black,
-    //   borderRadius: Radius.circular(20.0),
-    //   blurEffect: true,
-    //   index: currentIndex,
-    //   opacity: 0.8,
-    //   items: [
-    //     CustomNavigationBarItem(
-    //       icon: Icon(
-    //         Icons.home,
-    //       ),
-    //     ),
-    //     CustomNavigationBarItem(
-    //       icon: Icon(
-    //         Icons.shopping_cart,
-    //       ),
-    //     ),
-    //     CustomNavigationBarItem(
-    //       icon: Icon(
-    //         Icons.cloud,
-    //       ),
-    //     ),
-    //     CustomNavigationBarItem(
-    //       icon: Icon(
-    //         Icons.search,
-    //       ),
-    //     ),
-    //     CustomNavigationBarItem(
-    //       icon: Icon(Icons.supervised_user_circle),
-    //     ),
-    //   ],
-    //   currentIndex: _currentIndex,
-    //   onTap: (index) {
-    //     setState(() {
-    //       _currentIndex = index;
-    //     });
-    //   },
-    //   isFloating: true,
-    //   letIndexChange: (index) => true,
-    // ),
-
-    // bottomNavigationBar: CurvedNavigationBar(
-    //   key: _bottomNavigationKey,
-    //   index: currentIndex,
-    //   height: 50.0,
-    //   items: <Widget>[
-    //     Container(
-    //       height: 40,
-    //       width: 40,
-    //       child: CircleAvatar(
-    //         backgroundImage: AssetImage('assets/images/uzmob/uzmob.png'),
-    //       ),
-    //     ),
-    //     Container(
-    //       height: 40,
-    //       width: 40,
-    //       child: CircleAvatar(
-    //         backgroundImage: AssetImage('assets/images/ucell/ucell.jpg'),
-    //       ),
-    //     ),
-    //     Container(
-    //       height: 40,
-    //       width: 40,
-    //       child: CircleAvatar(
-    //         backgroundImage: AssetImage('assets/images/beeline/beelogo.png'),
-    //       ),
-    //     ),
-    //     Container(
-    //       height: 40,
-    //       width: 40,
-    //       child: CircleAvatar(
-    //         backgroundImage: AssetImage('assets/images/mobi/mobi.png'),
-    //       ),
-    //     ),
-    //     Container(
-    //       height: 40,
-    //       width: 40,
-    //       child: CircleAvatar(
-    //         backgroundImage: AssetImage('assets/images/operator.png'),
-    //       ),
-    //     ),
-    //   ],
-    //   color: Colors.black12,
-    //   buttonBackgroundColor: Colors.white54,
-    //   backgroundColor: Colors.white54,
-    //   animationCurve: Curves.easeInOut,
-    //   animationDuration: Duration(milliseconds: 500),
-    //   onTap: (index) {
-    //     setState(() {
-    //       currentIndex = index;
-    //     });
-    //   },
-    //   letIndexChange: (index) => true,
-    // ),
-    // );
   }
 }

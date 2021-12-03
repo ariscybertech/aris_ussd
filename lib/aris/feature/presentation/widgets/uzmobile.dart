@@ -29,9 +29,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
   List tabServiceForInternet = [];
   File file;
 
-
-  Future<String> getJsonTarif() async{
-    var dir=await getApplicationDocumentsDirectory();
+  Future<String> getJsonTarif() async {
+    var dir = await getApplicationDocumentsDirectory();
     file = File('${dir.path}/${UzmobScreen.jsonRoot[1]}');
     String fileString = await file.readAsString();
     return fileString;
@@ -44,8 +43,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
     len = myData.length;
   }
 
-  Future<String> getJson() async{
-    var dir=await getApplicationDocumentsDirectory();
+  Future<String> getJson() async {
+    var dir = await getApplicationDocumentsDirectory();
     file = File('${dir.path}/${UzmobScreen.jsonRoot[0]}');
     String fileString = await file.readAsString();
     return fileString;
@@ -72,6 +71,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
       ));
     }
   }
+
   @override
   void initState() {
     super.initState();
@@ -86,6 +86,22 @@ class _UzmobScreenState extends State<UzmobScreen> {
       padding: EdgeInsets.all(10),
       child: ListView(
         children: [
+          Card(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 200,
+                    width: double.infinity,
+                    child: Image.asset(
+                      'assets/images/uzmob/uzmob.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Row(
             children: [
               Expanded(
@@ -99,14 +115,14 @@ class _UzmobScreenState extends State<UzmobScreen> {
                           color: Colors.white,
                           image: DecorationImage(
                             image:
-                            AssetImage('assets/images/uzmob/uzmobback.jpg'),
+                                AssetImage('assets/images/uzmob/uzmobback.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
                         height: 130,
                       ),
                       GestureDetector(
-                        onTap:(){
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -125,7 +141,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                         },
                         child: Container(
                           color: Colors.white,
-                          width: MediaQuery.of(context).size.width-24,
+                          width: MediaQuery.of(context).size.width - 24,
                           height: 130,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +151,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                 height: 60,
                                 width: 60,
                                 child: Image(
-                                  image: AssetImage('assets/images/pack/net.png'),
+                                  image:
+                                      AssetImage('assets/images/pack/net.png'),
                                   color: Colors.blue,
                                 ),
                               ),
@@ -148,7 +165,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
@@ -161,7 +177,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                 child: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -183,7 +199,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               image: DecorationImage(
-                                image: AssetImage('assets/images/uzmob/uzmobback.jpg'),
+                                image: AssetImage(
+                                    'assets/images/uzmob/uzmobback.jpg'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -195,7 +212,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                 MaterialPageRoute(
                                   builder: (context) => TarifScreen(
                                     image: 'assets/images/uzmob/uzmob.png',
-
                                     borderColor: Colors.blueAccent,
                                     appBarColor: Colors.blueAccent,
                                     textColor: Colors.black,
@@ -207,7 +223,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                             },
                             child: Container(
                               color: Colors.white,
-                              width: MediaQuery.of(context).size.width-24,
+                              width: MediaQuery.of(context).size.width - 24,
                               height: 130,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -217,7 +233,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                     height: 60,
                                     width: 60,
                                     child: Image(
-                                      image: AssetImage('assets/images/pack/plan.png'),
+                                      image: AssetImage(
+                                          'assets/images/pack/plan.png'),
                                       color: Colors.blue,
                                     ),
                                   ),
@@ -230,15 +247,13 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                       ),
                                     ),
                                   ),
-
                                 ],
                               ),
                             ),
                           ),
                         ],
                       ),
-                    )
-                ),
+                    )),
               ),
             ],
           ),
@@ -254,7 +269,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                           borderRadius: BorderRadius.circular(16),
                           image: DecorationImage(
                             image:
-                            AssetImage('assets/images/uzmob/uzmobback.jpg'),
+                                AssetImage('assets/images/uzmob/uzmobback.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -267,7 +282,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                             MaterialPageRoute(
                               builder: (context) => DaqiqaScreen(
                                 image: 'assets/images/uzmob/uzmob.png',
-
                                 appBarColor1: Color(0xFF348AC7),
                                 appBarColor: Color(0xFF7474BF),
                                 textColor: Colors.black,
@@ -278,7 +292,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                           );
                         },
                         child: Container(
-                          width: MediaQuery.of(context).size.width-24,
+                          width: MediaQuery.of(context).size.width - 24,
                           height: 130,
                           color: Colors.white,
                           child: Column(
@@ -289,7 +303,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                 height: 60,
                                 width: 60,
                                 child: Image(
-                                  image: AssetImage('assets/images/pack/call.png'),
+                                  image:
+                                      AssetImage('assets/images/pack/call.png'),
                                   color: Colors.blue,
                                 ),
                               ),
@@ -302,7 +317,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
@@ -321,7 +335,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           image: DecorationImage(
-                            image: AssetImage('assets/images/uzmob/uzmobback.jpg'),
+                            image:
+                                AssetImage('assets/images/uzmob/uzmobback.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -333,7 +348,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                             MaterialPageRoute(
                               builder: (context) => ServicesScreen(
                                 image: 'assets/images/uzmob/uzmob.png',
-
                                 borderColor: Colors.blueAccent,
                                 appBarColor: Colors.blueAccent,
                                 textColor: Colors.black,
@@ -344,7 +358,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                         },
                         child: Container(
                           color: Colors.white,
-                          width: MediaQuery.of(context).size.width-24,
+                          width: MediaQuery.of(context).size.width - 24,
                           height: 130,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -354,7 +368,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                 height: 60,
                                 width: 60,
                                 child: Image(
-                                  image: AssetImage('assets/images/pack/news.png'),
+                                  image:
+                                      AssetImage('assets/images/pack/news.png'),
                                   color: Colors.blue,
                                 ),
                               ),
@@ -367,7 +382,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
@@ -390,7 +404,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                           borderRadius: BorderRadius.circular(16),
                           image: DecorationImage(
                             image:
-                            AssetImage('assets/images/uzmob/uzmobback.jpg'),
+                                AssetImage('assets/images/uzmob/uzmobback.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -403,7 +417,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                             MaterialPageRoute(
                               builder: (context) => SmsScreen(
                                 image: 'assets/images/uzmob/uzmob.png',
-
                                 appBarColor1: Color(0xFF348AC7),
                                 appBarColor: Color(0xFF7474BF),
                                 textColor: Colors.black,
@@ -415,7 +428,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                         },
                         child: Container(
                           color: Colors.white,
-                          width: MediaQuery.of(context).size.width-24,
+                          width: MediaQuery.of(context).size.width - 24,
                           height: 130,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -425,7 +438,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                 height: 60,
                                 width: 60,
                                 child: Image(
-                                  image: AssetImage('assets/images/pack/sms.png'),
+                                  image:
+                                      AssetImage('assets/images/pack/sms.png'),
                                   color: Colors.blue,
                                 ),
                               ),
@@ -438,7 +452,6 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
@@ -457,7 +470,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
                             image: DecorationImage(
-                              image: AssetImage('assets/images/uzmob/uzmobback.jpg'),
+                              image: AssetImage(
+                                  'assets/images/uzmob/uzmobback.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -478,7 +492,7 @@ class _UzmobScreenState extends State<UzmobScreen> {
                           },
                           child: Container(
                             color: Colors.white,
-                            width: MediaQuery.of(context).size.width-24,
+                            width: MediaQuery.of(context).size.width - 24,
                             height: 130,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -488,7 +502,8 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                   height: 70,
                                   width: 70,
                                   child: Image(
-                                    image: AssetImage('assets/images/pack/ussd.png'),
+                                    image: AssetImage(
+                                        'assets/images/pack/ussd.png'),
                                     color: Colors.blue,
                                   ),
                                 ),
@@ -504,14 +519,12 @@ class _UzmobScreenState extends State<UzmobScreen> {
                                     ),
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
                         ),
                       ],
-                    )
-                ),
+                    )),
               ),
             ],
           ),

@@ -88,6 +88,22 @@ class _MobiUzScreenState extends State<MobiUzScreen> {
       padding: EdgeInsets.all(10),
       child: ListView(
         children: [
+          Card(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 200,
+                    width: double.infinity,
+                    child: Image.asset(
+                      'assets/images/uzmob/uzmob.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Row(
             children: [
               Expanded(

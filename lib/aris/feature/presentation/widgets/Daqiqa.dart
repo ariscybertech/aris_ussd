@@ -1,34 +1,35 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:aris_ussd/aris/feature/presentation/widgets/HomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share/share.dart';
-import 'package:aris_ussd/aris/Screens/HomePage.dart';
 
-class SmsScreen extends StatefulWidget {
+class DaqiqaScreen extends StatefulWidget {
   final Color appBarColor;
   final Color appBarColor1;
   final Color textColor;
-  final String root;
   final String def;
+  final String root;
   final String image;
 
-  const SmsScreen({
+  const DaqiqaScreen({
     Key key,
     this.appBarColor,
     this.textColor,
-    this.root,
     this.def,
+    this.root,
     this.appBarColor1,
     this.image,
   }) : super(key: key);
 
   @override
-  _SmsScreenState createState() => _SmsScreenState();
+  _DaqiqaScreenState createState() => _DaqiqaScreenState();
 }
 
-class _SmsScreenState extends State<SmsScreen> {
+class _DaqiqaScreenState extends State<DaqiqaScreen> {
   var myData;
   File file;
 
@@ -40,24 +41,25 @@ class _SmsScreenState extends State<SmsScreen> {
     return fileString;
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: Colors.black, //change your color here
         ),
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          'SMS paketlar',
+          'Daqiqa',
           style: TextStyle(
             color: Colors.black,
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
             child: Container(
               height: 40,
               width: 40,
@@ -80,29 +82,28 @@ class _SmsScreenState extends State<SmsScreen> {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [widget.appBarColor, widget.appBarColor1]),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          offset: const Offset(
-                            5.0,
-                            5.0,
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [widget.appBarColor, widget.appBarColor1]),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: const Offset(
+                              5.0,
+                              5.0,
+                            ),
+                            blurRadius: 10.0,
+                            spreadRadius: 2.0,
+                          ), //BoxShadow
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: const Offset(0.0, 0.0),
+                            blurRadius: 0.0,
+                            spreadRadius: 0.0,
                           ),
-                          blurRadius: 10.0,
-                          spreadRadius: 2.0,
-                        ), //BoxShadow
-                        BoxShadow(
-                          color: Colors.white,
-                          offset: const Offset(0.0, 0.0),
-                          blurRadius: 0.0,
-                          spreadRadius: 0.0,
-                        ),
-                      ],
-                    ),
+                        ]),
                     height: 60,
                     width: MediaQuery.of(context).size.width,
                     child: Center(
@@ -128,6 +129,8 @@ class _SmsScreenState extends State<SmsScreen> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white,
+                                  border: Border.all(
+                                      width: 2, color: Colors.black12),
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.black12,
@@ -144,9 +147,7 @@ class _SmsScreenState extends State<SmsScreen> {
                                       blurRadius: 0.0,
                                       spreadRadius: 0.0,
                                     ),
-                                  ],
-                                  border: Border.all(
-                                      width: 2, color: Colors.black12)),
+                                  ]),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -235,7 +236,7 @@ class _SmsScreenState extends State<SmsScreen> {
                                                 '${myData[index]['service_code']}',
                                                 style: TextStyle(
                                                   color: Colors.white,
-                                                  fontSize: 18,
+                                                  fontSize: 16,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),

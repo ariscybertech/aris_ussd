@@ -1,17 +1,17 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:aris_ussd/aris/feature/presentation/widgets/Daqiqa.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/SmsScreen.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/balans_screen.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/internet_screen.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/tariflar.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/xizmatlar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:aris_ussd/aris/Screens/internet_screen.dart';
-import 'package:aris_ussd/aris/Screens/Daqiqa.dart';
-import 'package:aris_ussd/aris/Screens/SmsScreen.dart';
-import 'package:aris_ussd/aris/Screens/balans_screen.dart';
-import 'package:aris_ussd/aris/Screens/tariflar.dart';
-import 'package:aris_ussd/aris/Screens/xizmatlar.dart';
 
-class SingleBlock extends StatefulWidget {
+class Beeline extends StatefulWidget {
   static List<String> jsonRoot = [
     'beeline/internet.json',
     'beeline/tarif.json',
@@ -22,17 +22,17 @@ class SingleBlock extends StatefulWidget {
   ];
 
   @override
-  _SingleBlockState createState() => _SingleBlockState();
+  _BeelineState createState() => _BeelineState();
 }
 
-class _SingleBlockState extends State<SingleBlock> {
+class _BeelineState extends State<Beeline> {
   List<Tab> tabForInternet = [];
   List tabServiceForInternet = [];
   File file;
 
   Future<String> getJsonTarif() async {
     var dir = await getApplicationDocumentsDirectory();
-    file = File('${dir.path}/${SingleBlock.jsonRoot[1]}');
+    file = File('${dir.path}/${Beeline.jsonRoot[1]}');
     String fileString = await file.readAsString();
     return fileString;
   }
@@ -46,7 +46,7 @@ class _SingleBlockState extends State<SingleBlock> {
 
   Future<String> getJson() async {
     var dir = await getApplicationDocumentsDirectory();
-    file = File('${dir.path}/${SingleBlock.jsonRoot[0]}');
+    file = File('${dir.path}/${Beeline.jsonRoot[0]}');
     String fileString = await file.readAsString();
     return fileString;
   }
@@ -71,6 +71,15 @@ class _SingleBlockState extends State<SingleBlock> {
       // print(myData[k]['id']);
     }
   }
+
+  List<Color> colors = [
+    Colors.blue,
+    Colors.deepPurple,
+    Colors.yellow[900],
+    Colors.red,
+  ];
+
+  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -131,7 +140,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                   image: 'assets/images/beeline/beelogo.png',
                                   appBarColor1: Color(0xFFFF8008),
                                   appBarColor: Color(0xFFFFC837),
-                                  textColor: Colors.black,
+                                  textColor: colors[_currentIndex],
                                   borderColor: Colors.yellow,
                                   tabList: tabForInternet,
                                   tabServiceList: tabServiceForInternet,
@@ -154,14 +163,14 @@ class _SingleBlockState extends State<SingleBlock> {
                                   child: Image(
                                     image: AssetImage(
                                         'assets/images/pack/net.png'),
-                                    color: Colors.black,
+                                    color: Colors.yellow[900],
                                   ),
                                 ),
                                 Container(
                                   child: Text(
                                     'Internet paketlar',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.yellow[900],
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -188,9 +197,9 @@ class _SingleBlockState extends State<SingleBlock> {
                               image: 'assets/images/beeline/beelogo.png',
                               borderColor: Colors.yellow,
                               appBarColor: Colors.yellow,
-                              textColor: Colors.black,
+                              textColor: Colors.yellow[900],
                               len: len,
-                              root: SingleBlock.jsonRoot[1],
+                              root: Beeline.jsonRoot[1],
                             ),
                           ),
                         );
@@ -208,7 +217,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                     appBarColor: Colors.yellow,
                                     textColor: Colors.black,
                                     len: len,
-                                    root: SingleBlock.jsonRoot[1],
+                                    root: Beeline.jsonRoot[1],
                                   ),
                                 ),
                               );
@@ -239,14 +248,14 @@ class _SingleBlockState extends State<SingleBlock> {
                                   child: Image(
                                     image: AssetImage(
                                         'assets/images/pack/plan.png'),
-                                    color: Colors.black,
+                                    color: Colors.yellow[900],
                                   ),
                                 ),
                                 Container(
                                   child: Text(
                                     'Tariflar',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.yellow[900],
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -287,9 +296,9 @@ class _SingleBlockState extends State<SingleBlock> {
                                 image: 'assets/images/beeline/beelogo.png',
                                 appBarColor1: Color(0xFFFF8008),
                                 appBarColor: Color(0xFFFFC837),
-                                textColor: Colors.black,
+                                textColor: Colors.yellow[800],
                                 def: "*106#",
-                                root: SingleBlock.jsonRoot[2],
+                                root: Beeline.jsonRoot[2],
                               ),
                             ),
                           );
@@ -308,14 +317,14 @@ class _SingleBlockState extends State<SingleBlock> {
                                 child: Image(
                                   image:
                                       AssetImage('assets/images/pack/call.png'),
-                                  color: Colors.black,
+                                  color: Colors.yellow[900],
                                 ),
                               ),
                               Container(
                                 child: Text(
                                   'Daqiqa paketlar',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.yellow[900],
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -354,7 +363,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                 borderColor: Colors.yellow,
                                 appBarColor: Colors.yellow,
                                 textColor: Colors.black,
-                                root: SingleBlock.jsonRoot[3],
+                                root: Beeline.jsonRoot[3],
                               ),
                             ),
                           );
@@ -373,14 +382,14 @@ class _SingleBlockState extends State<SingleBlock> {
                                 child: Image(
                                   image:
                                       AssetImage('assets/images/pack/news.png'),
-                                  color: Colors.black,
+                                  color: Colors.yellow[900],
                                 ),
                               ),
                               Container(
                                 child: Text(
                                   'Xizmatlar',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.yellow[900],
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -424,7 +433,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                 appBarColor: Color(0xFFFFC837),
                                 textColor: Colors.black,
                                 def: "*107#",
-                                root: SingleBlock.jsonRoot[4],
+                                root: Beeline.jsonRoot[4],
                               ),
                             ),
                           );
@@ -443,14 +452,14 @@ class _SingleBlockState extends State<SingleBlock> {
                                 child: Image(
                                   image:
                                       AssetImage('assets/images/pack/sms.png'),
-                                  color: Colors.black,
+                                  color: Colors.yellow[900],
                                 ),
                               ),
                               Container(
                                 child: Text(
                                   'SMS paketlar',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.yellow[900],
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -488,7 +497,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                   image: 'assets/images/beeline/beelogo.png',
                                   appBarColor: Colors.yellow,
                                   textColor: Colors.black,
-                                  root: SingleBlock.jsonRoot[5],
+                                  root: Beeline.jsonRoot[5],
                                 ),
                               ),
                             );
@@ -507,7 +516,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                   child: Image(
                                     image: AssetImage(
                                         'assets/images/pack/ussd.png'),
-                                    color: Colors.black,
+                                    color: Colors.yellow[900],
                                   ),
                                 ),
                                 Container(
@@ -516,7 +525,7 @@ class _SingleBlockState extends State<SingleBlock> {
                                       'Ussd kodlar va xizmatlar',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.yellow[900],
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),

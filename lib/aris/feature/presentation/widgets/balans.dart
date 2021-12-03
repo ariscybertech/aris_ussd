@@ -1,7 +1,5 @@
+import 'package:aris_ussd/aris/feature/presentation/widgets/HomePage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:aris_ussd/aris/Screens/HomePage.dart';
 
 class BalansWidget extends StatefulWidget {
   final String title;

@@ -1,4 +1,4 @@
-import 'package:aris_ussd/aris/Screens/HomePage.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

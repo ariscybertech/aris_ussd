@@ -6,12 +6,12 @@ import 'package:aris_ussd/aris/feature/presentation/pages/Ucell.dart';
 import 'package:aris_ussd/aris/feature/presentation/pages/beeline.dart';
 import 'package:aris_ussd/aris/feature/presentation/pages/mobiuz.dart';
 import 'package:aris_ussd/aris/feature/presentation/pages/uzmobile.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/ContactScreen.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:aris_ussd/aris/Screens/ContactScreen.dart';
 import 'package:ussd/ussd.dart';
 
 class HomePage extends StatefulWidget {
@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> screens = [
     UzmobScreen(),
     UcellScreen(),
-    SingleBlock(),
+    Beeline(),
     MobiUzScreen(),
     ContactScreen(),
   ];
@@ -241,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     UzmobScreen(),
                     UcellScreen(),
-                    SingleBlock(),
+                    Beeline(),
                     MobiUzScreen(),
                   ],
                 ),
@@ -259,13 +259,13 @@ class _HomePageState extends State<HomePage> {
             BottomNavyBarItem(
               icon: Icon(Icons.apps),
               title: Text('Uzmobile'),
-              activeColor: Colors.blue,
+              activeColor: colors[_currentIndex],
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.people),
               title: Text('Ucell'),
-              activeColor: Colors.purpleAccent,
+              activeColor: colors[_currentIndex],
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
@@ -273,13 +273,13 @@ class _HomePageState extends State<HomePage> {
               title: Text(
                 'Beeline',
               ),
-              activeColor: Colors.pink,
+              activeColor: colors[_currentIndex],
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.settings),
               title: Text('Mobi'),
-              activeColor: Colors.blue,
+              activeColor: colors[_currentIndex],
               textAlign: TextAlign.center,
             ),
           ],

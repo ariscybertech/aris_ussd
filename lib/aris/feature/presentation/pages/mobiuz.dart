@@ -1,16 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:aris_ussd/aris/feature/presentation/widgets/Daqiqa.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/SmsScreen.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/balans_screen.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/internet_screen.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/tariflar.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/xizmatlar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:aris_ussd/aris/Screens/Daqiqa.dart';
-import 'package:aris_ussd/aris/Screens/SmsScreen.dart';
-import 'package:aris_ussd/aris/Screens/balans_screen.dart';
-import 'package:aris_ussd/aris/Screens/internet_screen.dart';
-import 'package:aris_ussd/aris/Screens/tariflar.dart';
-import 'package:aris_ussd/aris/Screens/xizmatlar.dart';
-
 class MobiUzScreen extends StatefulWidget {
   static List<String> jsonRoot = [
     'mobiuz/internet.json',

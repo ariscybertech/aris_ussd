@@ -1,13 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/HomePage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:aris_ussd/aris/Screens/HomePage.dart';
 
 class TarifScreen extends StatefulWidget {
   final Color appBarColor;

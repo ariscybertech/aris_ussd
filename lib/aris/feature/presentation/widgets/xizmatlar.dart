@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-
-import 'package:aris_ussd/aris/Screens/HomePage.dart';
+import 'package:aris_ussd/aris/feature/presentation/widgets/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';

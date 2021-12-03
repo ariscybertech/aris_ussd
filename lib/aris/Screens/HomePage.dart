@@ -2,20 +2,16 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:archive/archive.dart';
+import 'package:aris_ussd/aris/feature/presentation/pages/Ucell.dart';
+import 'package:aris_ussd/aris/feature/presentation/pages/beeline.dart';
+import 'package:aris_ussd/aris/feature/presentation/pages/mobiuz.dart';
+import 'package:aris_ussd/aris/feature/presentation/pages/uzmobile.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:dio/dio.dart';
-import 'package:draggable_floating_button/draggable_floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:share/share.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:aris_ussd/aris/Screens/ContactScreen.dart';
-import 'package:aris_ussd/aris/feature/presentation/widgets/uzmobile.dart';
-import 'package:aris_ussd/aris/feature/presentation/widgets/Settings.dart';
-import 'package:aris_ussd/aris/feature/presentation/widgets/beeline.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:aris_ussd/aris/feature/presentation/widgets/Ucell.dart';
-import 'package:aris_ussd/aris/feature/presentation/widgets/mobiuz.dart';
 import 'package:ussd/ussd.dart';
 
 class HomePage extends StatefulWidget {

@@ -53,7 +53,7 @@ def keystoreProperties = new Properties()
         applicationId "com.aristech.aris_ussd"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode flutterVersionCode.toInteger()
+        versionCode 1
         versionName flutterVersionName
     }
 

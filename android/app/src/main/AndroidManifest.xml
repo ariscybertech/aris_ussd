@@ -1,8 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aris_ussd">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="aris_ussd"
-        android:icon="@mipmap/ic_launcher">
+        android:label="ARIS USSD"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

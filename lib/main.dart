@@ -9,7 +9,7 @@ void main()async {
     int k;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     k = prefs.getInt('isFirst');
-    if(k == 1){
+    if(k == 1){ 
       // print(k);
       isFirst = false;
     }else{
